@@ -3,9 +3,8 @@
 //require inquirer for user input
 var inquirer = require('inquirer');
 
-//at most their are 9 moves, so the file will stop after 9 runs
-var move = 1;
-//at the start of the game, a blank board will be logged to the console
+
+
 var board = [" "," ", " ", " ", " ", " ", " ", " ", " "]
 
 var promptUser = function(player, board) {
@@ -34,9 +33,9 @@ var selectSpot = function(spot, player, board) {
       console.log("it's a draw!")
       return;
     } else if (player === "o"){
-      promptUser("x")
+      promptUser("x", board)
     } else if (player === "x") {
-      promptUser("o")
+      promptUser("o", board)
     }
   } else {
     console.log('bad choice!')
