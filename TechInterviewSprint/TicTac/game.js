@@ -8,19 +8,19 @@ var move = 1;
 //at the start of the game, a blank board will be logged to the console
 var board = [" "," ", " ", " ", " ", " ", " ", " ", " "]
 
-var promptUser = function(player) {
+var promptUser = function(player, board) {
   inquirer.prompt({message: "player " + player + " choose a spot (1 - 9)", name: "choice"}).then(function(input) {
     
-    selectSpot(input.choice, player);
+    selectSpot(input.choice, player, board);
   })
 }
 
 //helper function to select a spot
-var selectSpot = function(spot, player) {
+var selectSpot = function(spot, player, board) {
   
   spot = Number(spot)
 
-  if (checkSpot(spot)) {
+  if (checkSpot(spot, board)) {
     //take spot off board
     board[spot - 1] = player
     renderBoard(board)
@@ -46,7 +46,7 @@ var selectSpot = function(spot, player) {
 }
 
 //helper function to check if the spot selected is valid
-var checkSpot = function(spot) {
+var checkSpot = function(spot, board) {
   //if spot is NaN, it's not valid
   if (isNaN(spot)) {
     return false
@@ -145,7 +145,7 @@ var printRules = function() {
   inquirer.prompt({message: "Ok, got it? y/n", name: "choice"}).then(function(input) {
     if (input.choice === "y") {
       renderBoard(board)
-      promptUser("x")
+      promptUser("x", board)
     } else {
       printRules()
     }
@@ -159,4 +159,5 @@ module.exports = {
   checkSpot,
   checkBoard,
   selectSpot,
+  move
 }

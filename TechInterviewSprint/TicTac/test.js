@@ -4,37 +4,46 @@ var game = require('./game.js')
 
 //write tests for selectSpot
 describe('selectSpot', function() {
-  //it should call checkSpot 
-
-  //it should call renderBoard, if selected spot is valid
-
-  //it should call checkBoard, if selected spot is valid
+  var board = ["x","o"," "," "," "," "," "," "," "];
 
   //it should increment move if selected spot is valid
-
+  it('should increment the move variable if a valid spot is selected', function() {
+    game.selectSpot(3, "x", board)
+    assert.equal(1, game.move)
+  })
   //it should update the board
+  it('should update the board if the selected spot is valid', function() {
+    game.selectSpot(4, "o", board)
+    assert.equal("o",board[3])
+  })
+  //it should not increment move if the selection was invalid
+  it('should not update move if the selection was invalid', function() {
+    game.selectSpot("y","o",board)
+    assert.equal(1, game.move)
+    game.selectSpot(1,"o", board)
+    assert.equal(1, game.move)
+  })
 
-  //it should call promptUser if the select spot was invalid
 })
 //write tests for checkSpot
 describe('checkSpot', function() {
   var board = ["x","o"," "," "," "," "," "," "," "]
   //it should return false if spot is NaN
   it('should return false if spot is NaN', function() {
-    assert.equal(false, game.checkSpot("f"));
+    assert.equal(false, game.checkSpot("f", board));
   })
   //it should return false if spot is a number less than 1 or greater than 9
   it('should return false if spot is a number less than 1 or greater than 9', function() {
-    assert.equal(false, game.checkSpot(10))
-    assert.equal(false, game.checkSpot(0))
+    assert.equal(false, game.checkSpot(10, board))
+    assert.equal(false, game.checkSpot(0, board))
   })
   //it should return false if the spot has already been chosen
   it('should return false if the spot has already been chosen', function() {
-    assert.equal(false, game.checkSpot(0))
+    assert.equal(false, game.checkSpot(0, board))
   })
   //it should return true if the spot is open and the selection valid
   it('should return true if the spot is open', function() {
-    assert.equal(true, game.checkSpot(4))
+    assert.equal(true, game.checkSpot(4, board))
   })
 })
 //write tests for checkBoard
