@@ -155,4 +155,8 @@ var printRules = function() {
 var move = 1;
 welcomeUsers();
 
-
+module.exports = {
+  checkSpot,
+  checkBoard,
+  selectSpot,
+}
