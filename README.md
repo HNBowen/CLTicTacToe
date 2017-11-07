@@ -8,3 +8,9 @@ Clone the repo in the standard manner.
 Install dependencies by running npm install from the root directory.
 
 Start a new game by running npm start.
+
+## Dependencies
+
+inquire.js
+mocha
+assert
