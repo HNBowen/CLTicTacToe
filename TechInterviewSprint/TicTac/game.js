@@ -64,7 +64,7 @@ var checkSpot = function(spot) {
 
 //helper function to check if the board has been solved
 var checkBoard = function(board) {
-  console.log('inside checkBoard')
+  
   //check each row
   for (var i = 0; i <= 6; i+=3) {
   
