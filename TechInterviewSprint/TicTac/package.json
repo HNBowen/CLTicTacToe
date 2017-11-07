@@ -4,11 +4,14 @@
   "description": "a command line tic tac toe game",
   "main": "game.js",
   "dependencies": {
-    "inquirer": "^3.3.0"
+    "assert": "^1.4.1",
+    "inquirer": "^3.3.0",
+    "mocha": "^4.0.1"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "start": "node game.js"
   },
   "repository": {
     "type": "git",

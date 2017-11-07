@@ -121,27 +121,30 @@ var welcomeUsers = function() {
   console.log("Welcome to Command Line Tic Tac Toe!")
   setTimeout(function() {
     console.log("-*-*-*-*-*-*-*-*-*-*-");
-  }, 500)
-  setTimeout(function() {
-    console.log("-*-*-*-*-*-*-*-*-*-*-");
-  }, 600)
-  setTimeout(function() {
-    console.log("-*-*-*-*-*-*-*-*-*-*-");
-  }, 600)
-  setTimeout(function() {
-    console.log("-*-*-*-*-*-*-*-*-*-*-");
-  }, 700)
-  setTimeout(printRules, 1000)  
+    setTimeout(function() {
+      console.log("-*-*-*-*-*-*-*-*-*-*-");
+      setTimeout(function() {
+        console.log("------* RULES *------");
+        setTimeout(function() {
+          console.log("-*-*-*-*-*-*-*-*-*-*-");
+          setTimeout(function() {
+            printRules();
+          }, 1000)
+        }, 1000)
+      }, 1000)
+    }, 1000)
+  }, 1000)
+  
 }
 
 var printRules = function() {
-  console.log("------* RULES *------");
   console.log("There are two players, x and o")
   console.log("Player x places first (sorry player o, pick x next time)")
   console.log("Place an x or 0 by selecting a number 1 - 9")
   console.log("1 refers to the upper left, 9 to the lower right. You get the idea")
   inquirer.prompt({message: "Ok, got it? y/n", name: "choice"}).then(function(input) {
     if (input.choice === "y") {
+      renderBoard(board)
       promptUser("x")
     } else {
       printRules()
