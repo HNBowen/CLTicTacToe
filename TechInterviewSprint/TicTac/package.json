@@ -1,0 +1,23 @@
+{
+  "name": "cltictactoe",
+  "version": "1.0.0",
+  "description": "a command line tic tac toe game",
+  "main": "game.js",
+  "dependencies": {
+    "inquirer": "^3.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HNBowen/CLTicTacToe.git"
+  },
+  "author": "hank bowen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HNBowen/CLTicTacToe/issues"
+  },
+  "homepage": "https://github.com/HNBowen/CLTicTacToe#readme"
+}
